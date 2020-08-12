@@ -1,0 +1,7 @@
+# PDF to PNG
+pdftoppm fileName.pdf -png pngFileName
+# Image to GIF
+convert -resize 50% -delay 80 tamilAStar{0..10}.jpg tamilAStarFinal.jpg tamilAStarGIF.gif
+
+
+
