@@ -158,18 +158,8 @@ img = plotPath(img, 'Pondicherry', 'Villupuram', 39)
 
 import math
 
-
-# dicSTLineDistanceFromALLtoGoal = {}
-# def createStraightLineDistance(toNode):
-#     global dicSTLineDistanceFromALLtoGoal
-#     dicSTLineDistanceFromALLtoGoal[toNode] = 0
-#     for k,v in dictll.items():
-#         dicSTLineDistanceFromALLtoGoal[k] = np.linalg.norm(np.asarray(dictll[toNode])-np.asarray(v))
-
-
 dicSTLineDistanceFromALLtoGoal = {}
 def createStraightLineDistance(toNode):
-    #https://www.mapdevelopers.com/distance_from_to.php
     global dicSTLineDistanceFromALLtoGoal
     dicSTLineDistanceFromALLtoGoal[toNode] = 0
     dicSTLineDistanceFromALLtoGoal['Dindigul'] = 262
@@ -219,7 +209,7 @@ def distanceBetweenNodes(fromNode, parent, node1):
                 NodeDistanceFromParent = 0
                
     dicDistanceFromSource[node1] = NodeDistanceFromParent + dicDistanceFromSource[parent]
-    # print(node1)
+    print(node1)
     dicDistanceFromSourceToGoal[node1] = dicDistanceFromSource[node1] + dicSTLineDistanceFromALLtoGoal[node1]
 
 # print(nodeDict['Coimbatore'])
@@ -288,11 +278,11 @@ def AStar(fromNode, toNode):
                 distanceBetweenNodes(fromNode, currentNode, neigh)
                 # print(currentNode,' Ghost ; ', neigh)
 
-        print(currentNode)
-        print('[',end='')
-        for k in range(len(frontier.myQueue)):
-            print("'"+frontier.myQueue[k]+"'"+' - '+str(int(dicDistanceFromSourceToGoal[frontier.myQueue[k]])), end=',')
-        print(']')
+        # print(currentNode)
+        # print('[',end='')
+        # for k in range(len(frontier.myQueue)):
+        #     print("'"+frontier.myQueue[k]+"'"+' - '+str(int(dicDistanceFromSourceToGoal[frontier.myQueue[k]])), end=',')
+        # print(']')
         cv2.imwrite('../AStaroutput/tamilAStar'+str(i)+'.jpg', cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE))
         i = i + 1
         
